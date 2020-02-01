@@ -27,6 +27,6 @@ $(document).ready(function () {
 		var randomId = Math.random().toString(36).substring(2, 8);
 		console.log(randomId)
 		// $('#recieptID').attr("href",randomId);
-		$('#recieptID').text(randomId);
+		$('#recieptID').val(randomId);
 	});
 }); 

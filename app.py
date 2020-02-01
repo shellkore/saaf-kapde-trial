@@ -11,8 +11,12 @@ def dbHandler():
 	cur.execute("select name from host")
 	return
 
-def registerInDb(name,gender,email,hostel,room,institute):
+def registerInDb(username,password,name,gender,email,hostel,room,institute):
+	con = sql.connect("database.db")
+	cur= con.cursor()
+	cur.execute("INSERT INTO user (username,password,name,gender,email,hostel,room,institute) VALUES (?,?,?,?,?,?,?,?)",(username,password,name,gender,email,hostel,room,institute))
 
+def reqInDB(username,recieptID,shirts,jeans,hoodies,sheets)
 
 @app.route('/',methods = ['GET'])
 def home():
@@ -31,8 +35,23 @@ def register():
 		hostel = request.form['hostel-name']
 		room = request.form['room-no']
 		institute = request.form['institute-name']	
+		registerInDb(username,password,name,gender,email,hostel,room,institute)
+		msg = 'registered successfully!!'
+		return render_template('result.html',msg=msg)
 
-		msg = 'registered successfully'
+@app.route('/req',methods = ['GET','POST'])
+def req():
+	if request.method == 'GET':
+		return render_template('request.html')
+	else:
+		username = request.form['username']
+		shirts = request.form['shirts-number']
+		jeans = request.form['jeans-number']
+		sheets = request.form['bedsheets-number']
+		hoodies = request.form['hoodies-number']
+		recieptID = request.form['recieptID']
+		reqInDB(username,recieptID,shirts,jeans,hoodies,sheets)
+		msg = "order placed successfully!!"
 		return render_template('result.html',msg=msg)
 
 if __name__=='__main__':

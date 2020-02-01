@@ -1,12 +1,14 @@
 <div class="container">
+  <form id="req-form" action = "{{ url_for('req') }}" method = "POST">
+    <label for="uname"><i class="fa fa-user"></i> User Name </label>
+    <input type="text" id="uname" name="username" placeholder="Enter username">
     <label for="cloths"><i class="fa fa-user"></i> Clothes Choice </label>
-    <input type="number" id="shirts" name="shirts number" placeholder="Enter no of shirts"></br>
-          <input type="number" id="jeans" name="jeans number" placeholder="Enter no of jeans"></br>
-          <input type="number" id="bedsheets" name="bedsheets number" placeholder="Enter no of bedsheets"></br>
-          <input type="number" id="hoodies" name="hoodies number" placeholder="Enter no of hoodies"></br>
+    <input type="number" id="shirts" name="shirts-number" placeholder="Enter no of shirts"></br>
+          <input type="number" id="jeans" name="jeans-number" placeholder="Enter no of jeans"></br>
+          <input type="number" id="bedsheets" name="bedsheets-number" placeholder="Enter no of bedsheets"></br>
+          <input type="number" id="hoodies" name="hoodies-number" placeholder="Enter no of hoodies"></br>
     <button class="btn" id='order-btn'>Get you bill</button>
   </div>
-</div>
 
 <div class="container">
     <h4>Cart
@@ -23,7 +25,10 @@
     <p>Total <span class="price" id="totalFinal" style="color:black"><b>₹ 0</b></span></p>
   </div>
   <div class="container">
-      <h4>Your reciept ID is: <a id="recieptID" href="#"> </a></h4>
+      <h4>Your reciept ID is:</h4>
+      <input type="text" id="recieptID" name="recieptID" >
   </div>
+  <button type="submit" name="submit">Place your order</button>
+</form>
 </div>
 </div>
