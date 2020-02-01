@@ -1,9 +1,9 @@
 $(document).ready(function () {
 	$('#order-btn').click(function(){
-		var shirtsPrice = 5;
-		var jeansPrice = 3;
-		var sheetsPrice = 8;
-		var hoodiesPrice = 2;
+		var shirtsPrice = 10;
+		var jeansPrice = 10;
+		var sheetsPrice = 30;
+		var hoodiesPrice = 20;
 		var noshirts = $('#shirts').val();
 		var nojeans = $('#jeans').val();
 		var nosheets = $('#bedsheets').val();
@@ -37,11 +37,11 @@ $(document).ready(function () {
 			rId : recieptId
 		}
 		$.post('/fetchRec',obj,function(data){
-			console.log(data)
-			var shirtsPrice = 5;
-			var jeansPrice = 3;
-			var sheetsPrice = 8;
-			var hoodiesPrice = 2;
+			console.log(data[0],data[1],data[2],data[3])
+			var shirtsPrice = 10;
+			var jeansPrice = 10;
+			var sheetsPrice = 30;
+			var hoodiesPrice = 20;
 			var noshirts = data[0];
 			var nojeans = data[1];
 			var nohoodies = data[2];

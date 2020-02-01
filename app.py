@@ -11,6 +11,7 @@ def registerInDb(username,password,name,gender,email,hostel,room,institute):
 	cur.execute("INSERT INTO user (username,password,name,gender,email,hostel,room,institute) VALUES (?,?,?,?,?,?,?,?)",(username,password,name,gender,email,hostel,room,institute))
 	con.commit()
 	cur.close()
+	return("registered in Database")
 
 def reqInDB(username,recieptID,shirts,jeans,hoodies,sheets):
 	con = sql.connect("database.db")
@@ -18,6 +19,7 @@ def reqInDB(username,recieptID,shirts,jeans,hoodies,sheets):
 	cur.execute("INSERT INTO reciept (username,recieptID,shirts,jeans,hoodies,sheets) VALUES (?,?,?,?,?,?)",(username,recieptID,shirts,jeans,hoodies,sheets))
 	con.commit()
 	cur.close()
+	return("request saved in Database")
 
 @app.route('/',methods = ['GET'])
 def home():
@@ -51,7 +53,7 @@ def req():
 		sheets = request.form['bedsheets-number']
 		hoodies = request.form['hoodies-number']
 		recieptID = request.form['recieptID']
-		reqInDB(username,recieptID,shirts,jeans,hoodies,sheets)
+		print(reqInDB(username,recieptID,shirts,jeans,hoodies,sheets))
 		msg = f"order placed successfully!! and your reciept-ID is {recieptID}"
 		return render_template('result.html',msg=msg)
 
@@ -70,13 +72,13 @@ def fetchRec():
 	cur = con.cursor()
 	cur.execute(f"select * from reciept where recieptID='{rID}'")
 	rows = cur.fetchall()
-	print(rows)
+	print(len(rows[0]))
 	cur.close()
 
 	shirts = rows[0][2]
-	jeans = rows[0][2]
-	hoodies = rows[0][2]
-	sheets = rows[0][2]
+	jeans = rows[0][3]
+	hoodies = rows[0][4]
+	sheets = rows[0][5]
 	return (jsonify([shirts,jeans,hoodies,sheets]))
 	# return ('sending...')
 
