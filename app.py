@@ -14,5 +14,10 @@ def dbHandler():
 def home():
 	return render_template('index.html')
 
+@app.route('/',methods = ['GET,POST'])
+def register():
+	if method == 'GET':
+		return render_template(register.html)
+
 if __name__=='__main__':
 	app.run(host='0.0.0.0', debug = True, port = 5000)

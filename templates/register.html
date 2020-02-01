@@ -1,2 +1,28 @@
 {% extends "base.html" %} {% block content %}
+<form id="register-form" action = "{{ url_for('register') }}" method = "POST">
+          <h1>Clothes Order list</h1>
+          <label for="fname"><i class="fa fa-user"></i> Full Name </label>
+          <input type="text" id="fname" name="firstname" placeholder="Enter your name">
+          <label for="gend"> Gender </label>
+          <input type="radio" id="gend" name="gender" value="male" checked> Male<br>
+          <input type="radio" id="gend" name="gender" value="female"> Female<br>
+          </br>
+          <label for="email"><i class="fa fa-envelope"></i> Email </label>
+          <input type="text" id="email" name="email" placeholder="xxxxxx@gmail.com">
+          <label for="hostel"><i class="fa fa-address-card-o"></i> Hostel Name </label>
+          <input type="text" id="hostel" name="hostel name" placeholder="Enter hostel name">
+          <label for="room"> Room no. </label>
+          <input type="Text" id="room" name="room no." placeholder="Enter room no.">
+          <label for="insitute"><i class="fa fa-institution"></i> College Name </label>
+          <input type="text" id="institute" name="institute name" placeholder="Enter college name">
+          <!-- <label for="cloths"><i class="fa fa-user"></i> Clothes Choice </label>
+          <select name="clothes">
+          <option value="shirt">Shirts</option>
+          <option value="jeans">Jeans</option>
+          <option value="bedsheet">Bedsheet</option>
+          <option value="Hoodies">Hoodies</option>
+          </select>
+           -->
+      	 <input type="submit" name="submit">
+    </form>
 {% endblock %}
