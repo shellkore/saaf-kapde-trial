@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8"> 
+    <title> Saaf Kapde </title>
+    <link rel="stylesheet" type="text/css" href="request.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="request.js"></script>
+
+  </head> 
+  <body>
+    <div class="container">
+      <form>
+            <h1>Clothes Order list</h1>
+            <label for="fname"><i class="fa fa-user"></i> Full Name </label>
+            <input type="text" id="fname" name="firstname" placeholder="Enter your name">
+            <label for="gend"> Gender </label>
+            <input type="radio" id="gend" name="gender" value="male" checked> Male<br>
+            <input type="radio" id="gend" name="gender" value="female"> Female<br>
+            </br>
+            <label for="email"><i class="fa fa-envelope"></i> Email </label>
+            <input type="text" id="email" name="email" placeholder="xxxxxx@gmail.com">
+            <label for="hostel"><i class="fa fa-address-card-o"></i> Hostel Name </label>
+            <input type="text" id="hostel" name="hostel name" placeholder="Enter hostel name">
+            <label for="room"> Room no. </label>
+            <input type="Text" id="room" name="room no." placeholder="Enter room no.">
+            <label for="insitute"><i class="fa fa-institution"></i> College Name </label>
+            <input type="text" id="institute" name="institute name" placeholder="Enter college name">
+            <label for="cloths"><i class="fa fa-user"></i> Clothes Choice </label>
+            <!-- <select name="clothes">
+            <option value="shirt">Shirts</option>
+            <option value="jeans">Jeans</option>
+            <option value="bedsheet">Bedsheet</option>
+            <option value="Hoodies">Hoodies</option>
+            </select> -->
+            <input type="number" id="shirts" name="shirts number" placeholder="Enter no of shirts"></br>
+            <input type="number" id="jeans" name="jeans number" placeholder="Enter no of jeans"></br>
+            <input type="number" id="bedsheets" name="bedsheets number" placeholder="Enter no of bedsheets"></br>
+            <input type="number" id="hoodies" name="hoodies number" placeholder="Enter no of hoodies"></br>
+        
+      </form>
+      <button class="btn" id='order-btn'>Get you bill</button>
+    </div>
+  </div>
+
+  <div class="container">
+      <h4>Cart
+        <span class="price"  id="count" style="color:black">
+          <i class="fa fa-shopping-cart"></i>
+          <b>4</b>
+        </span>
+      </h4>
+      <p><a href="#"> Shirts </a> <span class="price" id="shirtsFinal">₹ 0</span></p>
+      <p><a href="#"> Jeans </a> <span class="price" id='jeansFinal'>₹ 0</span></p>
+      <p><a href="#"> Bedsheets </a> <span class="price" id='sheetsFinal'>₹ 0</span></p>
+      <p><a href="#"> Hoodies </a> <span class="price" id='hoodiesFinal'>₹ 0</span></p>
+      <hr>
+      <p>Total <span class="price" id="totalFinal" style="color:black"><b>₹ 0</b></span></p>
+    </div>
+    <div class="container">
+        <h4>Your reciept ID is: <a id="recieptID" href="#"> </a></h4>
+    </div>
+  </div>
+</div>
+</body>
+</html>
