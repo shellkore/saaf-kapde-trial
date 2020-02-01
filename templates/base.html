@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <title>Saaf Kapde||One Call To Clean It All</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="request.css">
+<script type="text/javascript" src="request.js"></script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
@@ -37,13 +41,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
   <h1 class="w3-margin w3-jumbo">SAAF KAPDE</h1>
-  <img src="logo.png">
+  <img src="{{ url_for('static',filename='images/logo.png') }}">
   <p class="w3-xlarge">One Call To Clean It All</p>
  
 </header>
 
 {% block content %}{% endblock %}
 
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge">Give us laundry-list, we will set it to music!</h1>
+</div>
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
   <div class="w3-xlarge w3-padding-32">
