@@ -3,9 +3,9 @@
 	  	<div>
 	  				<label for="reciept">Enter your reciept ID</label>
 	  				<input type="text" id="reciept" name="reciept" placeholder="Receipt ID here">
-	  				<button>Get Your Reciept</button>
+	  				<button id = 'getReciept-btn'>Get Your Reciept</button>
 	  			</div>
-	  		</div>
+	  		</div> 
         <div class="container">
        <h4>Cart
         <span class="price"  id="count" style="color:black">
@@ -13,10 +13,10 @@
         <b>0</b>
       </span>
     </h4>
-    <p><a href="#"> Shirts </a> <span class="price" id="shirtsFinal">₹ 0</span></p>
-    <p><a href="#"> Jeans </a> <span class="price" id='jeansFinal'>₹ 0</span></p>
-    <p><a href="#"> Bedsheets </a> <span class="price" id='sheetsFinal'>₹ 0</span></p>
-    <p><a href="#"> Hoodies </a> <span class="price" id='hoodiesFinal'>₹ 0</span></p>
+    <p><a href="#"> Shirts </a> <span id=shirtsCount></span><span class="price" id="shirtsFinal">₹ 0</span></p>
+    <p><a href="#"> Jeans </a> <span id=jeansCount></span><span class="price" id='jeansFinal'>₹ 0</span></p>
+    <p><a href="#"> Bedsheets </a><span id=sheetsCount></span> <span class="price" id='sheetsFinal'>₹ 0</span></p>
+    <p><a href="#"> Hoodies </a> <span id=hoodiesCount></span><span class="price" id='hoodiesFinal'>₹ 0</span></p>
     <hr>
     <p>Total <span class="price" id="totalFinal" style="color:black"><b>₹ 0</b></span></p>
   </div>

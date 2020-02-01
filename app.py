@@ -1,25 +1,23 @@
-from flask import Flask, render_template, request, redirect,url_for
+from flask import Flask, render_template, request, redirect,url_for,jsonify
 import sqlite3 as sql
 import time
 import os
 
 app = Flask(__name__)
 
-def dbHandler():
-	con = sql.connect("database.db")
-	cur=con.cursor()
-	cur.execute("select name from host")
-	return
-
 def registerInDb(username,password,name,gender,email,hostel,room,institute):
 	con = sql.connect("database.db")
 	cur= con.cursor()
 	cur.execute("INSERT INTO user (username,password,name,gender,email,hostel,room,institute) VALUES (?,?,?,?,?,?,?,?)",(username,password,name,gender,email,hostel,room,institute))
+	con.commit()
+	cur.close()
 
 def reqInDB(username,recieptID,shirts,jeans,hoodies,sheets):
 	con = sql.connect("database.db")
 	cur= con.cursor()
 	cur.execute("INSERT INTO reciept (username,recieptID,shirts,jeans,hoodies,sheets) VALUES (?,?,?,?,?,?)",(username,recieptID,shirts,jeans,hoodies,sheets))
+	con.commit()
+	cur.close()
 
 @app.route('/',methods = ['GET'])
 def home():
@@ -59,18 +57,36 @@ def req():
 
 @app.route('/reciept',methods=['GET'])
 def reciept():
-	return
+	return render_template('reciept.html')
 
 
-@app.route('/fetchRec')
+@app.route('/fetchRec',methods=['POST'])
 def fetchRec():
+	#8f3xgv
+	rID = request.form.get('rId')
+	print(rID)
 	con = sql.connect("database.db")
 	con.row_factory = sql.Row
 	cur = con.cursor()
-	cur.execute("select * from host")
+	cur.execute(f"select * from reciept where recieptID='{rID}'")
 	rows = cur.fetchall()
+	print(rows)
 	cur.close()
-	return (rows)
+
+	shirts = rows[0][2]
+	jeans = rows[0][2]
+	hoodies = rows[0][2]
+	sheets = rows[0][2]
+	return (jsonify([shirts,jeans,hoodies,sheets]))
+	# return ('sending...')
+
+@app.route('/pricing',methods=['GET'])
+def pricing():
+	return render_template('pricing.html')
+
+@app.route('/contact',methods=['GET'])
+def contact():
+	return render_template('contact_us.html')
 
 if __name__=='__main__':
 	app.run(host='0.0.0.0', debug = True, port = 5000)
