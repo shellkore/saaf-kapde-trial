@@ -16,7 +16,10 @@ def registerInDb(username,password,name,gender,email,hostel,room,institute):
 	cur= con.cursor()
 	cur.execute("INSERT INTO user (username,password,name,gender,email,hostel,room,institute) VALUES (?,?,?,?,?,?,?,?)",(username,password,name,gender,email,hostel,room,institute))
 
-def reqInDB(username,recieptID,shirts,jeans,hoodies,sheets)
+def reqInDB(username,recieptID,shirts,jeans,hoodies,sheets):
+	con = sql.connect("database.db")
+	cur= con.cursor()
+	cur.execute("INSERT INTO reciept (username,recieptID,shirts,jeans,hoodies,sheets) VALUES (?,?,?,?,?,?)",(username,recieptID,shirts,jeans,hoodies,sheets))
 
 @app.route('/',methods = ['GET'])
 def home():
@@ -54,7 +57,12 @@ def req():
 		msg = f"order placed successfully!! and your reciept-ID is {recieptID}"
 		return render_template('result.html',msg=msg)
 
-@app.route('/fetchRec'):
+@app.route('/reciept',methods=['GET'])
+def reciept():
+	return
+
+
+@app.route('/fetchRec')
 def fetchRec():
 	con = sql.connect("database.db")
 	con.row_factory = sql.Row
