@@ -51,8 +51,18 @@ def req():
 		hoodies = request.form['hoodies-number']
 		recieptID = request.form['recieptID']
 		reqInDB(username,recieptID,shirts,jeans,hoodies,sheets)
-		msg = "order placed successfully!!"
+		msg = f"order placed successfully!! and your reciept-ID is {recieptID}"
 		return render_template('result.html',msg=msg)
+
+@app.route('/fetchRec'):
+def fetchRec():
+	con = sql.connect("database.db")
+	con.row_factory = sql.Row
+	cur = con.cursor()
+	cur.execute("select * from host")
+	rows = cur.fetchall()
+	cur.close()
+	return (rows)
 
 if __name__=='__main__':
 	app.run(host='0.0.0.0', debug = True, port = 5000)
